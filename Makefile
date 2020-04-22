@@ -41,14 +41,14 @@ image:
 		--build-arg SCHEMA_BUILD_VERSION="$(SCHEMA_BUILD_VERSION)" \
 		--build-arg SCHEMA_CMD="$(SCHEMA_CMD)" \
 		-t lynx123125/image:latest .
-	docker tag lynx123125/image:latest lynx123125/image:v1
+	docker tag "lynx123125/image:latest" "lynx123125/image:$(TAG)"
 	
   # TODO: last part of this command that tags just built image with a specyfic tag
 	
 push: image
 	# TODO: two commands, first pushes the latest image, second pushes the image tagged with specyfic tag
 	docker push lynx123125/image:latest
-	docker push lynx123125/image:v1
+	docker push "lynx123125/image:$(TAG)"
 clean:
 
 .PHONY: clean image push all
